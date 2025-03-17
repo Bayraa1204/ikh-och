@@ -1,24 +1,33 @@
 "use client";
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
+import { ReactNode } from "react";
 
 interface LanguageContextType {
   language: string;
-  toggleLanguage: () => void;
+  toggleLanguage: (lang: string) => void;
 }
 
-const LanguageContext = createContext<LanguageContextType>({
+export const LanguageContext = createContext<LanguageContextType>({
   language: "en",
   toggleLanguage: () => {},
 });
 
-import { ReactNode } from "react";
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  const [language, setLanguage] = useState<string>("mn");
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState("en");
+  useEffect(() => {
+    const savedLang = localStorage.getItem("language");
+    if (savedLang) setLanguage(savedLang);
+    setIsLoading(false);
+  }, []);
 
-  const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "en" ? "mn" : "en"));
+  const toggleLanguage = (lang: string) => {
+    setLanguage(lang);
+    localStorage.setItem("language", lang);
   };
+
+  if (isLoading) return null;
 
   return (
     <LanguageContext.Provider value={{ language, toggleLanguage }}>
@@ -27,6 +36,4 @@ const LanguageProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-const useLanguage = () => useContext(LanguageContext);
-
-export { LanguageProvider, useLanguage };
+export const useLanguage = () => useContext(LanguageContext);
