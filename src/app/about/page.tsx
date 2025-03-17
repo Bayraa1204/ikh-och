@@ -76,7 +76,7 @@ const AboutPage = () => {
         <h2 className="text-2xl sm:text-3xl font-bold text-[#2D1E3C] mb-6">
           {language === "en"
             ? "Our Mission & Vision"
-            : "Манай Эрхэм зорилго ба Хараа"}
+            : "Манай Эрхэм зорилго ба Алсын хараа"}
         </h2>
         <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-12">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm mx-auto transition transform hover:scale-105 duration-300">
@@ -92,7 +92,7 @@ const AboutPage = () => {
 
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm mx-auto transition transform hover:scale-105 duration-300">
             <h3 className="text-xl sm:text-2xl font-semibold text-[#2D1E3C] mb-4">
-              {language === "en" ? "Vision" : "Хараа"}
+              {language === "en" ? "Vision" : "Алсын Хараа"}
             </h3>
             <p className="text-gray-700">
               {language === "en"
