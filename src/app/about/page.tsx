@@ -76,7 +76,7 @@ const AboutPage = () => {
         <h2 className="text-2xl sm:text-3xl font-bold text-[#2D1E3C] mb-6">
           {language === "en"
             ? "Our Mission & Vision"
-            : "Манай Эрхэм зорилго ба Алсын хараа"}
+            : "Бидний Эрхэм зорилго ба Алсын хараа"}
         </h2>
         <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-12">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm mx-auto transition transform hover:scale-105 duration-300">
@@ -105,7 +105,7 @@ const AboutPage = () => {
 
       <section className="p-6 sm:p-10 text-center">
         <h2 className="text-2xl sm:text-3xl font-bold text-[#2D1E3C] mb-6">
-          {language === "en" ? "Our Team" : "Манай Баг"}
+          {language === "en" ? "Our Team" : "Манай Хамт Олон"}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {team.length > 0 ? (
